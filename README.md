@@ -87,4 +87,28 @@ Assignment 1
         3. ∂E_total / ∂w4 = ((a_01 - t1) * a_o1 * (1 - a_o1) * w6 +  (a_02 - t2) * a_o2 * (1 - a_o2) * w8) * a_h2 * (1 - a_h2) * i2
         
 6. Changing the learning rates:
-   See screenshot in base folder. 
+   See screenshot in base folder.
+
+7. Formulae used in Excel:
+    1. t1, t2: constant (target output)
+    2. i1, i2: constant (inputs)
+    3. w1 to w8: Weights. Initial values are random. Updated value = Initial value - (Learning Rate * Partial derivative of Error to that weight)
+        1. e.g. w1_new = w1_old - (LR * ∂E/∂w1)
+        2. e.g. E33 - ($G$31 * X33)
+    4. Hidden layer values: Multiply weights and values of previous layer
+        1. e.g. h1 = (E33 * C33) + (F33 * D33)
+        2. Same for h1, h2, o1, o2
+    5. Activated layer value: Multiply by sigmoid.
+        1. e.g. a_h1 = 1 / (1 + EXP(-h1))
+        2. i.e. J33 = 1 / (1 + EXP (-I33))
+        3. Same for a_h1, a_h2, a_o1, a_o2
+    6. Error Value: 1/2 of difference of square of target vs actual.
+        1. E1 = ½ (t1 - a_o1) ^ 2
+        2. U33 = 0.5 * (A33 - R33)^2
+    7. Total Error: Sum of E1 and E2
+        1. W33 = U33 + V33
+    8. Partial derivative of error w.r.t. a weight:
+        1. ∂E_total / ∂w1 = ((a_01 - t1) * a_o1 * (1 - a_o1) * w5 +  (a_02 - t2) * a_o2 * (1 - a_o2) * w7) * a_h1 * (1 - a_h1) * i1
+        2. X33 = ( (R33-A33) * R33 * (1-R33) * M33 + (T33-B33) * T33 * (1-T33) * O33) * J33 * (1-J33) * C33
+
+(end)
